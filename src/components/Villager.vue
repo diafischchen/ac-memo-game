@@ -1,8 +1,16 @@
 <script>
 
+import { useStateMachine } from "../stores/state";
+
 export default {
     name: 'Villager',
     props: ['id'],
+    setup() {
+        const state = useStateMachine();
+        return {
+            state
+        }
+    },
     data() {
         return {
             sprites: [
@@ -20,7 +28,8 @@ export default {
     },
     methods: {
         flip() {
-            this.flipped = !this.flipped;
+            if (!this.state.animation)
+                this.flipped = !this.flipped;
         }
     }
 }
