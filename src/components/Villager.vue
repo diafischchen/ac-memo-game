@@ -71,6 +71,7 @@ export default {
     color: #0c1424;
     cursor: pointer;
     border-radius: 10px;
+    user-select: none;
 }
 
 .card-surface {
