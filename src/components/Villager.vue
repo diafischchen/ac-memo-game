@@ -33,7 +33,7 @@ export default {
         ?
     </div>
     <div class="card-surface card-front" v-else>
-        <img :src="sprites[id]" width="80" />
+        <img :src="sprites[id]" />
     </div>
 </div>
 
@@ -47,6 +47,8 @@ export default {
     font-size: 5rem;
     color: #0c1424;
     cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px #303030;
 }
 
 .card-surface {
@@ -70,6 +72,11 @@ export default {
     background-color: #f4fff2;
     border-radius: 10px;
     box-shadow: inset 0 0 0 10px #996600;
+}
+
+.card-front img {
+    max-width: 80%;
+    max-height: 80%;
 }
 
 </style>
