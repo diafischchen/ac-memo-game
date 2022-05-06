@@ -24,12 +24,26 @@ export default {
                 '/villagers/vega_nh.png',
             ],
             flipped: true,
+            cardCollapse: false,
         }
     },
     methods: {
         flip() {
-            if (!this.state.animation)
-                this.flipped = !this.flipped;
+            if (!this.state.animation) {
+                this.state.animation = true;
+
+                this.cardCollapse = !this.cardCollapse;
+
+                setTimeout(() => {
+                    this.flipped = !this.flipped;
+                    setTimeout(() => {
+                        this.cardCollapse = !this.cardCollapse;
+                        setTimeout(() => {
+                            this.state.animation = false;
+                        }, 200);
+                    }, 30)
+                }, 200)
+            }
         }
     }
 }
@@ -38,10 +52,10 @@ export default {
 
 <template>
 <div class="card" @click="flip()">
-    <div class="card-surface card-back" v-if="flipped">
+    <div class="card-surface card-back" v-if="flipped" :class="{'collapsed' : cardCollapse}">
         ?
     </div>
-    <div class="card-surface card-front" v-else>
+    <div class="card-surface card-front" v-else :class="{'collapsed' : cardCollapse}">
         <img :src="sprites[id]" />
     </div>
 </div>
@@ -57,7 +71,6 @@ export default {
     color: #0c1424;
     cursor: pointer;
     border-radius: 10px;
-    box-shadow: 0 5px 10px -5px #303030;
 }
 
 .card-surface {
@@ -67,6 +80,11 @@ export default {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    transition: transform .2s ease;
+}
+
+.card-surface.collapsed {
+    transform: scaleX(0);
 }
 
 .card-back {
@@ -75,12 +93,13 @@ export default {
     background-position: center;
     background-size: 400%;
     border-radius: 10px;
+    box-shadow: 0 5px 10px -5px #303030, inset 0 0 0 10px #75d3ae;
 }
 
 .card-front {
     background-color: #f4fff2;
     border-radius: 10px;
-    box-shadow: inset 0 0 0 10px #996600;
+    box-shadow: 0 5px 10px -5px #303030, inset 0 0 0 10px #996600;
 }
 
 .card-front img {
