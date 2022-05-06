@@ -22,8 +22,12 @@ export default {
 
 <style>
 
+@import url('./assets/css/font.css');
+
 body {
     background-color: #303030;
+    font-family: 'Zilla Slab', serif;
+    font-weight: 700;
 }
 
 </style>

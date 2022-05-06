@@ -44,6 +44,9 @@ export default {
 .card {
     width: 130px;
     height: 150px;
+    font-size: 5rem;
+    color: #0c1424;
+    cursor: pointer;
 }
 
 .card-surface {
