@@ -25,11 +25,12 @@ export default {
             ],
             flipped: true,
             cardCollapse: false,
+            guessed: false,
         }
     },
     methods: {
         flip() {
-            if (!this.state.animation) {
+            if (!this.state.animation && this.flipped && !this.guessed) {
                 this.state.animation = true;
 
                 this.cardCollapse = !this.cardCollapse;
@@ -39,11 +40,24 @@ export default {
                     setTimeout(() => {
                         this.cardCollapse = !this.cardCollapse;
                         setTimeout(() => {
-                            this.state.animation = false;
+                            this.$emit('flipped', this);
                         }, 200);
                     }, 30)
                 }, 200)
             }
+        },
+        justFlip() {
+            this.cardCollapse = !this.cardCollapse;
+
+            setTimeout(() => {
+                this.flipped = !this.flipped;
+                setTimeout(() => {
+                    this.cardCollapse = !this.cardCollapse;
+                }, 30)
+            }, 200)
+        },
+        justGuessed() {
+            this.guessed = true;
         }
     }
 }
@@ -51,7 +65,7 @@ export default {
 </script>
 
 <template>
-<div class="card" @click="flip()">
+<div class="card" @click="flip()" :class="{'guessed' : guessed}">
     <div class="card-surface card-back" v-if="flipped" :class="{'collapsed' : cardCollapse}">
         ?
     </div>
@@ -101,6 +115,10 @@ export default {
     background-color: #f4fff2;
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px #303030, inset 0 0 0 10px #996600;
+}
+
+.card.guessed .card-front {
+    box-shadow: 0 5px 10px -5px #303030, inset 0 0 0 10px #75d3ae;
 }
 
 .card-front img {
