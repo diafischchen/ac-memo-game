@@ -41,7 +41,8 @@
           "config": {
             "name": "ACMemoGame",
             "setupExe": "AC Memo Game Setup.exe",
-            "setupIcon": "public/favicon.ico"
+            "setupIcon": "public/favicon.ico",
+            "loadingGif": "public/install.gif"
           }
         },
         {

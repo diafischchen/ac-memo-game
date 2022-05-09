@@ -106,7 +106,7 @@ export default {
     background-image: url('../assets/card-back.png');
     background-size: cover;
     background-position: center;
-    background-size: 400%;
+    background-size: 100%;
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px #303030, inset 0 0 0 10px #75d3ae;
 }
