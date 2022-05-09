@@ -1,17 +1,64 @@
 {
   "name": "ac-memo-game",
-  "version": "0.0.0",
+  "productName": "AC Memo Game",
+  "version": "1.0.0",
+  "description": "A simple Memory Game Prototype with Animal Crossing Villagers",
+  "main": "main.js",
+  "author": "diafischchen",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 5050"
+    "preview": "vite preview --port 5050",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "prod": "vite build && electron-forge make"
   },
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "pinia": "^2.0.13",
     "vue": "^3.2.33"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
     "@vitejs/plugin-vue": "^2.3.1",
+    "electron": "18.2.0",
     "vite": "^2.9.5"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "public/favicon.ico"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "ACMemoGame",
+            "setupExe": "AC Memo Game Setup.exe",
+            "setupIcon": "public/favicon.ico"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
