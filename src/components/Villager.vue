@@ -14,14 +14,14 @@ export default {
     data() {
         return {
             sprites: [
-                '/villagers/eufemia_nh.png',
-                '/villagers/huschke_nh.png',
-                '/villagers/melinda_nh.png',
-                '/villagers/mimmi_nh.png',
-                '/villagers/pullunda_nh.png',
-                '/villagers/sophie_nh.png',
-                '/villagers/trita_nh.png',
-                '/villagers/vega_nh.png',
+                new URL('../assets/villagers/eufemia_nh.png', import.meta.url),
+                new URL('../assets/villagers/huschke_nh.png', import.meta.url),
+                new URL('../assets/villagers/melinda_nh.png', import.meta.url),
+                new URL('../assets/villagers/mimmi_nh.png', import.meta.url),
+                new URL('../assets/villagers/pullunda_nh.png', import.meta.url),
+                new URL('../assets/villagers/sophie_nh.png', import.meta.url),
+                new URL('../assets/villagers/trita_nh.png', import.meta.url),
+                new URL('../assets/villagers/vega_nh.png', import.meta.url),
             ],
             flipped: true,
             cardCollapse: false,
@@ -103,7 +103,7 @@ export default {
 }
 
 .card-back {
-    background-image: url('/card-back.png');
+    background-image: url('../assets/card-back.png');
     background-size: cover;
     background-position: center;
     background-size: 400%;
