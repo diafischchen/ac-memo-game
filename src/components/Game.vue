@@ -58,26 +58,40 @@ export default {
             if (this.card1 !== null && this.card2 !== null) {
                 setTimeout(() => {
                     this.evaluate();
-                }, 1300)
-                
+                }, 300)
             } else {
                 this.state.animation = false;
             }
         },
         evaluate() {
             this.trys++;
+            let timeout = 10
 
             if (this.card1.id === this.card2.id) {
                 this.card1.justGuessed()
                 this.card2.justGuessed()
+                
             } else {
                 this.card1.justFlip()
                 this.card2.justFlip()
+                timeout = 1000
             }
             
             this.card1 = null;
             this.card2 = null;
-            this.state.animation = false;
+            setTimeout(() => {
+                this.state.animation = false;
+            }, timeout)
+            
+        },
+        reset() {
+            this.villagers = [];
+            this.card1 = null;
+            this.card2 = null;
+            this.trys = 0;
+            setTimeout(() => {
+                this.generateVillagers(this.size);
+            }, 50)
         }
     },
     created() {

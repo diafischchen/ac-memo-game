@@ -7,16 +7,22 @@ export default {
     data() {
         return {};
     },
-    components: { Game }
+    components: { Game },
+    methods: {
+        reset() {
+            this.$refs.game.reset();
+        }
+    },
 }
 
 </script>
 
 <template>
 
-<div class="game">
-    <Game :size="4" />
+<div class="game" id="game">
+    <Game :size="4" ref="game" />
 </div>
+<button @click="reset">Reset</button>
 
 </template>
 

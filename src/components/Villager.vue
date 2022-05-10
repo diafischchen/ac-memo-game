@@ -47,14 +47,16 @@ export default {
             }
         },
         justFlip() {
-            this.cardCollapse = !this.cardCollapse;
-
             setTimeout(() => {
-                this.flipped = !this.flipped;
+                this.cardCollapse = !this.cardCollapse;
+
                 setTimeout(() => {
-                    this.cardCollapse = !this.cardCollapse;
-                }, 30)
-            }, 200)
+                    this.flipped = !this.flipped;
+                    setTimeout(() => {
+                        this.cardCollapse = !this.cardCollapse;
+                    }, 30)
+                }, 200)
+            }, 1000)
         },
         justGuessed() {
             this.guessed = true;
