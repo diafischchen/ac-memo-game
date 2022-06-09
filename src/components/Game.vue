@@ -107,6 +107,7 @@ export default {
 
 <div class="scores">
     <div>Versuche: {{ trys }}</div>
+    <div><button class="reset-button" @click="reset">Reset</button></div>
 </div>
 
 <div class="memo-grid" id="memo-grid">
@@ -131,13 +132,35 @@ export default {
 }
 
 .scores {
+    width: 550px;
+    margin: 10px auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     font-size: 2rem;
+    align-items: center;
 }
 
-.scores {
-    margin: 10px;
+.reset-button {
+    background-color: #75d3ae;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    font-family: 'Zilla Slab', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color .2s ease, box-shadow .2s ease;
+    box-shadow: 0 5px 10px -5px #303030;
+}
+
+.reset-button:hover {
+    background-color: #83e4bd;
+}
+
+.reset-button:focus {
+    box-shadow: 0 5px 10px -5px #303030, 0 0 0 3px #75d3ad75;
 }
 
 </style>
