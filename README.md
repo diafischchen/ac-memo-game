@@ -1,5 +1,8 @@
 # ac-memo-game
 
+[Live Demo](https://diafischchen.net/acmemo/)
+[Windows Executeable](https://diafischchen.net/acmemo/download)
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
@@ -26,4 +29,34 @@ npm run dev
 
 ```sh
 npm run build
+```
+
+### Preview Production Build
+
+```sh
+npm run preview
+```
+
+### Start Electron Application for Development
+
+```sh
+npm run start
+```
+
+### Package the Application for Electron
+
+```sh
+npm run package
+```
+
+### Make a Executeable
+
+```sh
+npm run make
+```
+
+### Build the Application and make a Executeable afterwards
+
+```sh
+npm run prod
 ```
